@@ -23,14 +23,14 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          cd bastion_csr
+          cd bastion_ssr
           npm install
           npm run build --if-present
           npm run test --if-present
 
       - name: Zip artifact for deployment
         run: |
-          cd bastion_csr
+          cd bastion_ssr
           zip -r release.zip . -x "node_modules/*" "test/*" "*.log" "*.git*"
 
       - name: Debug - List files
@@ -39,14 +39,14 @@ jobs:
           pwd
           echo "Contents of current directory:"
           ls 
-          echo "Contents of bastion_csr directory:"
-          ls bastion_csr
+          echo "Contents of bastion_ssr directory:"
+          ls bastion_ssr
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: node-app
-          path: bastion_csr/release.zip
+          path: bastion_ssr/release.zip
 
   deploy:
     runs-on: ubuntu-latest
