@@ -31,7 +31,7 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           cd bastion_ssr
-          zip -r release.zip . -x "test/*" "*.log" "*.git*"
+          zip -r release.zip . -x "node_modules/*" "test/*" "*.log" "*.git*"
 
       - name: Debug - List files
         run: |
@@ -63,9 +63,6 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip -d app_content
-           
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -85,5 +82,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'bastion'
-          package: app_content 
+          package: release.zip 
 
