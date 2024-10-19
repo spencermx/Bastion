@@ -33,6 +33,15 @@ jobs:
           cd bastion_csr
           zip -r release.zip . -x "node_modules/*" "test/*" "*.log" "*.git*"
 
+      - name: Debug - List files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls -R
+          echo "Contents of bastion_csr directory:"
+          ls -R bastion_csr
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
