@@ -76,8 +76,6 @@ jobs:
           pwd
           echo "Contents of current directory:"
           ls 
-          echo "Contents of bastion_csr directory:"
-          ls bastion_csr
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -87,5 +85,5 @@ jobs:
           package: release.zip
 
       - name: 'Post-deployment cleanup'
-        run: rm bastion_csr/release.zip         
+        run: rm release.zip         
 
