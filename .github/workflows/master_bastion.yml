@@ -31,7 +31,7 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           cd bastion_ssr
-          zip -r release.zip . -x "node_modules/*" "test/*" "*.log" "*.git*"
+          zip -r release.zip . -x "test/*" "*.log" "*.git*"
 
       - name: Debug - List files
         run: |
