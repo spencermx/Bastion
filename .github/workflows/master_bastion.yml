@@ -69,8 +69,8 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'bastion'
-          slot-name: 'Production'
-          package: .
+          package: bastion_csr/release.zip
 
       - name: 'Post-deployment cleanup'
-        run: rm release.zip         
+        run: rm bastion_csr/release.zip         
+
