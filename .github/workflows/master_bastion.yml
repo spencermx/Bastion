@@ -73,6 +73,15 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0BF2664F269A4987BF7BA2416D2FE009 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E1874C2226B14A93AA16585C5BA15D1A }}
 
+      - name: Debug - List files
+        run: |
+          echo "Current directory:"
+          pwd
+          echo "Contents of current directory:"
+          ls 
+          echo "Contents of bastion_csr directory:"
+          ls bastion_csr
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
