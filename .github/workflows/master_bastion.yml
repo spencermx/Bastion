@@ -31,7 +31,7 @@ jobs:
       - name: Zip artifact for deployment
         run: |
           cd bastion_csr
-          zip release.zip ./* -r
+          zip -r release.zip . -x "node_modules/*" "test/*" "*.log" "*.git*"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -71,4 +71,6 @@ jobs:
           app-name: 'bastion'
           slot-name: 'Production'
           package: .
-          
+
+      - name: 'Post-deployment cleanup'
+        run: rm release.zip         
