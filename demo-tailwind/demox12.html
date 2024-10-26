@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Layout Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .block {
+        display: block;
+        background-color: #FFB6C1;  /* light pink */
+        border: 2px solid red;
+        /* width: 200px; */
+        /* margin: 10px; */
+      }
+
+      .inline {
+        display: inline;
+        background-color: #98FB98;  /* light green */
+        border: 2px solid green;
+        /* width and height won't work */
+      }
+
+      .inline-block {
+        display: inline-block;
+        background-color: #87CEEB;  /* light blue */
+        border: 2px solid blue;
+        width: 200px;
+        height: 50px;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="block">Block: I take up full width and force new lines</div>
+    <span class="inline">Inline: We sittttttttttttttttttttttttttt</span>
+    <span class="inline">right next to each other with no breaks</span>
+    <div class="inline-block">Inline-block: I can have width</div>
+    <div class="inline-block">and still sit beside others</div>
+  </body>
+</html>
