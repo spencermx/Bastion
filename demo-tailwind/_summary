@@ -1,0 +1,11 @@
+CSS Summary
+
+
+--- display: block; ---
+My understanding of display: block; in css is that any element with that style will take up the entire width of the parent container
+unless the width is set. If the width is set to something like w-96 or w-[30%] or w-2/3 it will take up that percentage of the parent container.
+However if the content of the element exceeds that size it may overflow into the parent container. Setting the width is just for the border and 
+background-color not the content of the element.
+
+
+--- display: inline; ---

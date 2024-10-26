@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Layout Learning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="w-1/2 border-2 border-black p-4">
+      <div class="bg-red-500 w-[5%] p-2">
+        <!-- 1. Regular text (will overflow) fixed with break-words -->
+        <div class="bg-blue-100 break-words">
+          111111111111111111111111111111111111
+        </div>
+        <!-- 2. Images (will overflow by default) fixed with w-full -->
+        <img src="/api/placeholder/400/100" alt="placeholder" class="w-full" />
+        <!-- 3. Table (will overflow) fixed with wrapping table in div with class overflow-x-auto-->
+        <div class="overflow-x-auto">
+          <table class="border">
+            <tr>
+              <td class="border p-2">Very long content</td>
+              <td class="border p-2">More content here</td>
+              <td class="border p-2">Even more here</td>
+            </tr>
+          </table>
+        </div>
+        <!-- 4. Inline elements like buttons in a row (can overflow) -->
+        <!-- <div class="whitespace-nowrap">
+          <button class="bg-blue-500 p-2">Button 1</button>
+          <button class="bg-blue-500 p-2">Button 2</button>
+          <button class="bg-blue-500 p-2">Button 3</button>
+        </div>-->
+        <!-- 1. Flex with wrap (most common) -->
+        <div class="flex flex-wrap gap-2">
+          <button class="bg-blue-500 p-2">Button 1</button>
+          <button class="bg-blue-500 p-2">Button 2</button>
+          <button class="bg-blue-500 p-2">Button 3</button>
+        </div>
+        <!-- Solution 1: Force buttons to be container-width -->
+        <div class="flex flex-col gap-2">
+          <button class="bg-blue-500 p-2 w-full truncate">Button 1</button>
+          <button class="bg-blue-500 p-2 w-full truncate">Button 2</button>
+          <button class="bg-blue-500 p-2 w-full truncate">Button 3</button>
+        </div>
+        <!-- 2. Grid auto-fit -->
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(80px,1fr))] gap-2">
+          <button class="bg-green-500 p-2">Button 1</button>
+          <button class="bg-green-500 p-2">Button 2</button>
+          <button class="bg-green-500 p-2">Button 3</button>
+        </div>
+        <!-- Solution 2: Allow text to wrap within buttons -->
+        <div class="flex flex-col gap-2">
+          <button class="bg-green-500 p-2 w-full break-words">
+            Button 1
+          </button>
+          <button class="bg-green-500 p-2 w-full break-words">
+            Button 2
+          </button>
+          <button class="bg-green-500 p-2 w-full break-words">
+            Button 3
+          </button>
+        </div>
+        <!-- 3. Make buttons shrink (inline-flex) -->
+        <div class="flex gap-2">
+          <button class="bg-yellow-500 p-2 flex-shrink min-w-0">Button 1</button>
+          <button class="bg-yellow-500 p-2 flex-shrink min-w-0">Button 2</button>
+          <button class="bg-yellow-500 p-2 flex-shrink min-w-0">Button 3</button>
+        </div>
+        <!-- Solution 3: Shrink text if needed -->
+        <div class="flex flex-col gap-2">
+          <button class="bg-yellow-500 p-2 w-full text-[5px]">Button 1</button>
+          <button class="bg-yellow-500 p-2 w-full text-[5px]">Button 2</button>
+          <button class="bg-yellow-500 p-2 w-full text-[5px]">Button 3</button>
+        </div>
+        <!-- 4. Add horizontal scroll -->
+        <div class="overflow-x-auto whitespace-nowrap">
+          <button class="bg-purple-500 p-2">Button 1</button>
+          <button class="bg-purple-500 p-2">Button 2</button>
+          <button class="bg-purple-500 p-2">Button 3</button>
+        </div>
+        <!-- 5. Stack them vertically -->
+        <div class="flex flex-col gap-2">
+          <button class="bg-pink-500 p-2">Button 1</button>
+          <button class="bg-pink-500 p-2">Button 2</button>
+          <button class="bg-pink-500 p-2">Button 3</button>
+        </div>
+        <!-- 5. Absolutely positioned elements (will ignore container) -->
+        <div class="relative">
+          <div class="absolute left-0 bg-yellow-200">
+            I'm absolute positioned!
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
