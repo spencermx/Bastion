@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Flowbite CSS */
+@import 'flowbite';
+
 /* Use only this */
 html.dark {
   --background: #0a0a0a;
