@@ -52,7 +52,7 @@ export default function Contact() {
       </h1>
       
       <p className="text-lg mb-8 leading-relaxed">
-        I’d love to hear from you! Whether you have a question about my work, want to discuss a project, or just want to connect, feel free to reach out using the form below or through my social links.
+        I’d love to hear from you! Whether you have a question about my work, want to discuss a project, or just want to connect, feel free to reach out using the form below.
       </p>
 
       {/* Contact Form */}
@@ -107,6 +107,7 @@ export default function Contact() {
       {submitted && (
         <p className="text-teal-400 font-bold">Thank you! Your message has been sent.</p>
       )}
+
     </div>
   );
 }
