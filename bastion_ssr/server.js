@@ -2,13 +2,22 @@
 const next = require('next')
 const http = require('http')
 
+// Add startup logging
+console.log('=====================================')
+console.log('Server Starting')
+console.log('NODE_ENV:', process.env.NODE_ENV)
+console.log('PORT:', process.env.PORT)
+console.log('Current Directory:', process.cwd())
+console.log('Directory Contents:', require('fs').readdirSync('.'))
+console.log('=====================================')
+
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({ dev })
 const handleNextRequests = app.getRequestHandler()
 
 app.prepare().then(() => {
   const server = http.createServer((req, res) => {
-    // Basic request logger
+    // Log every request
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`)
 
     // Custom routing example
@@ -17,13 +26,23 @@ app.prepare().then(() => {
       return res.end(JSON.stringify({ status: 'ok', timestamp: new Date() }))
     }
 
-    // Let Next.js handle everything else
     return handleNextRequests(req, res)
   })
 
-  server.listen(3000, (err) => {
-    if (err) throw err
-    console.log('> Ready on http://localhost:3000')
-    console.log('> Mode:', dev ? 'development' : 'production')
+  const PORT = process.env.PORT || 3000
+  server.listen(PORT, () => {
+    console.log('=====================================')
+    console.log(`Server running on port ${PORT}`)
+    console.log('Mode:', dev ? 'development' : 'production')
+    console.log('=====================================')
   })
+})
+
+// Add error handlers
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err)
+})
+
+process.on('unhandledRejection', (err) => {
+  console.error('Unhandled Rejection:', err)
 })
