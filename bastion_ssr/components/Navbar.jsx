@@ -83,10 +83,10 @@ export default function Navbar() {
                 >
                   <li>
                     <a
-                      href="/project1"
+                      href="/chat"
                       className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
-                      Project 1
+                      Chatroom
                     </a>
                   </li>
                   <li>
