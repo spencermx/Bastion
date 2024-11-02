@@ -1,4 +1,3 @@
-
 // server/websocketHandlers/chatHandler.js
 const WebSocket = require('ws');
 

@@ -8,8 +8,10 @@ export default function ChatPage() {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    const ws = new WebSocket(`ws://${window.location.host}/ws/chat`);
-
+    // const ws = new WebSocket(`ws://${window.location.host}/ws/chat`);
+    const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+    const ws = new WebSocket(`${protocol}://${window.location.host}/ws/chat`);
+        
     ws.onopen = () => {
       console.log('Connected to chat WebSocket');
       setSocket(ws);
