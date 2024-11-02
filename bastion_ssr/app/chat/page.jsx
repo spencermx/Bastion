@@ -4,16 +4,20 @@ import { useState, useEffect, useRef } from "react";
 export default function ChatPage() {
   const [socket, setSocket] = useState(null);
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [chatMessages, setChatMessages] = useState([]); // State for chat messages
+  const [currentTime, setCurrentTime] = useState(""); // State for the latest server time
+  const [bgColor, setBgColor] = useState("bg-yellow-500"); // State for background color
+  const colorIndex = useRef(0); // Ref to track the current color index
   const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Scroll to bottom when chat messages change
   useEffect(() => {
     scrollToBottom();
-  }, [messages]);
+  }, [chatMessages]);
 
   useEffect(() => {
     const protocol = window.location.protocol === "https:" ? "wss" : "ws";
@@ -23,16 +27,37 @@ export default function ChatPage() {
       console.log("Connected to chat WebSocket");
       setSocket(ws);
     };
+
     ws.onmessage = (event) => {
-      setMessages((prev) => [...prev, event.data]);
+      try {
+        const messageObj = JSON.parse(event.data);
+
+        if (messageObj.type === "time") {
+          // Handle time updates
+          setCurrentTime(messageObj.data);
+
+          // Update the background color
+          const colors = ["bg-yellow-500", "bg-green-500", "bg-blue-500", "bg-red-500"];
+          colorIndex.current = (colorIndex.current + 1) % colors.length;
+          setBgColor(colors[colorIndex.current]);
+        } else if (messageObj.type === "chat") {
+          // Handle chat messages
+          setChatMessages((prev) => [...prev, messageObj.data]);
+        }
+      } catch (error) {
+        console.error("Failed to parse message:", error);
+      }
     };
+
     ws.onclose = () => {
       console.log("Disconnected from chat WebSocket");
       setSocket(null);
     };
+
     ws.onerror = (error) => {
       console.error("WebSocket error:", error);
     };
+
     return () => {
       ws.close();
     };
@@ -41,7 +66,8 @@ export default function ChatPage() {
   const sendMessage = () => {
     if (socket && socket.readyState === WebSocket.OPEN && input.trim()) {
       socket.send(input);
-      setMessages((prev) => [...prev, `You: ${input}`]);
+      // Add your own message to the chatMessages array
+      setChatMessages((prev) => [...prev, `You: ${input}`]);
       setInput("");
     }
   };
@@ -58,27 +84,41 @@ export default function ChatPage() {
 
       <div className="bg-gray-800 rounded-lg p-4 sm:p-6 shadow-xl">
         {/* Messages Container */}
-        <div className="mb-4 sm:mb-6 h-64 sm:h-96 overflow-y-auto bg-gray-900 rounded-lg p-3 sm:p-4">
-          <div className="flex flex-col space-y-3">
-            {messages.map((msg, idx) => (
+        <div className="relative mb-4 sm:mb-6 h-64 sm:h-96 overflow-y-auto bg-gray-900 rounded-lg p-3 sm:p-4">
+          {/* Render the Server Time at the Top */}
+          {currentTime && (
+            <div className="sticky top-0 z-10 flex justify-center">
               <div
-                key={idx}
+                className={`inline-block px-3 py-2 rounded-lg text-gray-900 break-words transition-colors duration-500 ${bgColor}`}
+                style={{ maxWidth: '80%' }}
+              >
+                Server Time: {currentTime}
+              </div>
+            </div>
+          )}
+
+          {/* Messages List */}
+          <div className="flex flex-col space-y-3 mt-2">
+            {/* Render Chat Messages Below the Time */}
+            {chatMessages.map((msg, idx) => (
+              <div
+                key={`chat-${idx}`}
                 className={`flex ${
                   msg.startsWith("You:") ? "justify-end" : "justify-start"
                 }`}
               >
                 <div
-                  className={`inline-block px-3 py-2 rounded-lg ${
+                  className={`inline-block px-3 py-2 rounded-lg break-words max-w-[80%] ${
                     msg.startsWith("You:")
                       ? "bg-gradient-to-r from-blue-500 to-teal-400 text-gray-900"
                       : "bg-gray-800 text-gray-100"
-                  } max-w-[80%] break-words`}
+                  }`}
                 >
                   {msg}
                 </div>
               </div>
             ))}
-            {/* Add this div at the end of messages */}
+            {/* Scroll Anchor */}
             <div ref={messagesEndRef} />
           </div>
         </div>
