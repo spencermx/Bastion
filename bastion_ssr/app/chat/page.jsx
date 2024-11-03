@@ -73,23 +73,23 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="max-w-full mx-auto px-4 sm:px-6 py-8 sm:py-12 text-gray-100">
-      <h1 className="text-3xl sm:text-5xl font-extrabold mb-4 sm:mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
+    <div className="max-w-full mx-auto px-4 sm:px-4 py-6 sm:py-8 text-gray-100">
+      <h1 className="text-2xl sm:text-4xl font-extrabold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
         Live Chat
       </h1>
 
-      <p className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
-        Welcome to the live chat! Connect with others in real-time. 
+      <p className="text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
+        Welcome to the live chat! Connect with others in real-time.
       </p>
 
-      <div className="bg-gray-800 rounded-lg p-4 sm:p-6 shadow-xl">
+      <div className="bg-gray-800 rounded-lg p-3 sm:p-5 shadow-xl">
         {/* Messages Container */}
-        <div className="relative mb-4 sm:mb-6 h-64 sm:h-96 overflow-y-auto bg-gray-900 rounded-lg p-3 sm:p-4">
+        <div className="relative mb-3 sm:mb-5 h-48 sm:h-96 md:h-72 lg:h-80 xl:h-96 overflow-y-auto bg-gray-900 rounded-lg p-2 sm:p-3">
           {/* Render the Server Time at the Top */}
           {currentTime && (
             <div className="sticky top-0 z-10 flex justify-center">
               <div
-                className={`inline-block px-3 py-2 rounded-lg text-gray-900 break-words transition-colors duration-500 ${bgColor}`}
+                className={`inline-block px-2 py-1 rounded-lg text-gray-900 break-words transition-colors duration-500 ${bgColor}`}
                 style={{ maxWidth: '80%' }}
               >
                 Server Time: {currentTime}
@@ -98,7 +98,7 @@ export default function ChatPage() {
           )}
 
           {/* Messages List */}
-          <div className="flex flex-col space-y-3 mt-2">
+          <div className="flex flex-col space-y-2 mt-2">
             {/* Render Chat Messages Below the Time */}
             {chatMessages.map((msg, idx) => (
               <div
@@ -108,7 +108,7 @@ export default function ChatPage() {
                 }`}
               >
                 <div
-                  className={`inline-block px-3 py-2 rounded-lg break-words max-w-[80%] ${
+                  className={`inline-block px-2 py-1 rounded-lg break-words max-w-[80%] ${
                     msg.startsWith("You:")
                       ? "bg-gradient-to-r from-blue-500 to-teal-400 text-gray-900"
                       : "bg-gray-800 text-gray-100"
@@ -124,7 +124,7 @@ export default function ChatPage() {
         </div>
 
         {/* Input Area */}
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row gap-2">
           <input
             type="text"
             value={input}
@@ -135,12 +135,12 @@ export default function ChatPage() {
               }
             }}
             placeholder="Type your message..."
-            className="flex-1 w-full sm:w-auto px-4 py-3 bg-gray-900 text-gray-100 rounded-lg border border-gray-600 focus:border-teal-400 focus:outline-none placeholder-gray-500"
+            className="flex-1 w-full sm:w-auto px-3 py-2 bg-gray-900 text-gray-100 rounded-lg border border-gray-600 focus:border-teal-400 focus:outline-none placeholder-gray-500 text-sm"
           />
           <button
             onClick={sendMessage}
             disabled={!socket}
-            className={`w-full sm:w-auto px-6 py-3 rounded-lg font-bold transition-colors ${
+            className={`w-full sm:w-auto px-4 py-2 rounded-lg font-bold transition-colors text-sm ${
               socket
                 ? "bg-gradient-to-r from-blue-500 to-teal-400 text-gray-900 hover:from-teal-400 hover:to-blue-500"
                 : "bg-gray-700 text-gray-500 cursor-not-allowed"
@@ -151,7 +151,7 @@ export default function ChatPage() {
         </div>
 
         {/* Connection Status */}
-        <div className="mt-4 text-sm text-center">
+        <div className="mt-3 text-xs text-center">
           {socket ? (
             <span className="text-teal-400">Connected to chat</span>
           ) : (
