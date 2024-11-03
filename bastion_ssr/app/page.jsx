@@ -22,7 +22,7 @@ export default function About() {
       {/* Introduction */}
       <section className="mb-6 transition-transform hover:scale-[1.02]">  {/* mb-8 to mb-6, reduced scale from 1.05 to 1.02 */}
         <p className="text-base leading-relaxed mb-3">  {/* text-lg to text-base, mb-4 to mb-3 */}
-          Hi, I'm a <span className="font-bold text-teal-400">Full Stack Software Engineer</span> with a passion for building efficient, scalable, and intuitive web applications. My approach combines strong problem-solving skills with a dedication to clean, maintainable code. With experience in both frontend and backend development, I strive to deliver end-to-end solutions that make a meaningful impact.
+          Hi, I’m a <span className="font-bold text-teal-400">Full Stack Software Engineer</span> with a passion for building efficient, scalable, and intuitive web applications. My approach combines strong problem-solving skills with a dedication to clean, maintainable code. With experience in both frontend and backend development, I strive to deliver end-to-end solutions that make a meaningful impact.
         </p>
       </section>
       
