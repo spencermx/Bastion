@@ -77,3 +77,22 @@ process.on("uncaughtException", (err) => {
 process.on("unhandledRejection", (err) => {
   console.error("Unhandled Rejection:", err);
 });
+
+
+
+
+Command: oryx build /tmp/zipdeploy/extracted -o /home/site/wwwroot --platform nodejs --platform-version 20 -p virtualenv_name= --log-file /tmp/build-debug.log  -i /tmp/8dcfb86f64d901e -p compress_node_modules=tar-gz | tee /tmp/oryx-build.log
+Operation performed by Microsoft Oryx, https://github.com/Microsoft/Oryx
+You can report issues at https://github.com/Microsoft/Oryx/issues
+
+Oryx Version: 0.2.20240424.1, Commit: d37b2225a252ab2c04b4726024d047cf01ea1318, ReleaseTagName: 20240424.1
+
+Build Operation ID: aa83961dfebd0033
+Repository Commit : c6c95796-105f-4059-9b28-3828250ad847
+OS Type           : bookworm
+Image Type        : githubactions
+
+Detecting platforms...
+/bin/bash: line 1:   123 Killed                  oryx build /tmp/zipdeploy/extracted -o /home/site/wwwroot --platform nodejs --platform-version 20 -p virtualenv_name= --log-file /tmp/build-debug.log -i /tmp/8dcfb86f64d901e -p compress_node_modules=tar-gz
+       124                       | tee /tmp/oryx-build.log
+/bin/bash: line 1:   123 Killed                  oryx build /tmp/zipdeploy/extracted -o /home/site/wwwroot --platform nodejs --platform-version 20 -p virtualenv_name= --log-file /tmp/build-debug.log -i /tmp/8dcfb86f64d901e -p compress_node_modules=tar-gz\n       124                       | tee /tmp/oryx-build.log\n/bin/bash -c "oryx build /tmp/zipdeploy/extracted -o /home/site/wwwroot --platform nodejs --platform-version 20 -p virtualenv_name= --log-file /tmp/build-debug.log  -i /tmp/8dcfb86f64d901e -p compress_node_modules=tar-gz | tee /tmp/oryx-build.log ; exit $PIPESTATUS "

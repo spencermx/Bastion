@@ -89,22 +89,6 @@ export default function Navbar() {
                       Chatroom
                     </a>
                   </li>
-                  <li>
-                    <a
-                      href="/project2"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Project 2
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/project3"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                    >
-                      Project 3
-                    </a>
-                  </li>
                 </ul>
               </div>
             </li>

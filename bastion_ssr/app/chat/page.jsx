@@ -79,7 +79,7 @@ export default function ChatPage() {
       </h1>
 
       <p className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed">
-        Welcome to the live chat! Connect with others in real-time. A WebSocket based live chat.
+        Welcome to the live chat! Connect with others in real-time. 
       </p>
 
       <div className="bg-gray-800 rounded-lg p-4 sm:p-6 shadow-xl">

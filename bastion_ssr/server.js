@@ -36,9 +36,6 @@ app.prepare().then(() => {
     return handleNextRequests(req, res);
   });
 
-  // Create WebSocket server outside the request handler
-  const wss = new WebSocket.Server({ noServer: true });
-
   // Create WebSocket servers for each functionality
   const chatWSS = new WebSocket.Server({ noServer: true });
   // const chessWSS = new WebSocket.Server({ noServer: true });
