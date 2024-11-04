@@ -99,12 +99,6 @@ export default function About() {
       {/* Social Links */}
       <footer className="text-center">
         <div className="flex justify-center space-x-6 text-teal-400 mb-6">
-          <Link href="https://github.com/yourusername">
-            <FaGithub size={36} className="hover:text-blue-400 transition-colors duration-300" />
-          </Link>
-          <Link href="https://linkedin.com/in/yourusername">
-            <FaLinkedin size={36} className="hover:text-blue-400 transition-colors duration-300" />
-          </Link>
         </div>
         <p className="text-sm text-gray-500">
           © {new Date().getFullYear()} Spencer Maas. All rights reserved.
