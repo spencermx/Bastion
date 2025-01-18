@@ -1,2 +1,2 @@
 # Bastion
-Web app 1
+Simple portfolio web app
