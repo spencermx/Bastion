@@ -10,7 +10,7 @@ export default function About() {
       {/* Header Section */}
       <header className="text-center mb-16">
         <h1 className="text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
-          Welcome to My Portfolio
+          Welcome to My Portfoliooo
         </h1>
         <p className="text-xl text-gray-300">
           Full Stack Software Engineer specialized in building scalable web applications
