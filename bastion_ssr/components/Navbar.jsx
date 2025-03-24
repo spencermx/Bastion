@@ -3,28 +3,24 @@
 
 export default function Navbar() {
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img
-            src="https://flowbite.com/docs/images/logo.svg"
-            className="h-8"
-            alt="Flowbite Logo"
-          />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            spencermaas.com
+    <nav className="bg-gray-900 border-b border-gray-700 sticky top-0 z-50">
+      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+        <a href="/" className="flex items-center space-x-2">
+          <span className="text-2xl text-teal-400">💻</span>
+          <span className="text-xl font-semibold text-white tracking-tight">
+            Spencer Maas
           </span>
         </a>
         <button
           data-collapse-toggle="navbar-dropdown"
           type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="md:hidden p-2 text-gray-400 rounded-lg hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-600"
           aria-controls="navbar-dropdown"
           aria-expanded="false"
         >
           <span className="sr-only">Open main menu</span>
           <svg
-            className="w-5 h-5"
+            className="w-6 h-6"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -39,12 +35,12 @@ export default function Navbar() {
             />
           </svg>
         </button>
-        <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <div className="hidden w-full md:flex md:w-auto" id="navbar-dropdown">
+          <ul className="flex flex-col md:flex-row md:space-x-6 p-4 md:p-0 mt-4 md:mt-0 bg-gray-800 md:bg-transparent rounded-lg border border-gray-700 md:border-0 text-sm font-medium">
             <li>
               <a
                 href="/"
-                className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                className="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-400 md:p-0 transition-colors"
                 aria-current="page"
               >
                 Home
@@ -54,11 +50,11 @@ export default function Navbar() {
               <button
                 id="dropdownNavbarLink"
                 data-dropdown-toggle="dropdownNavbar"
-                className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="flex items-center justify-between w-full py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-400 md:p-0 md:w-auto transition-colors"
               >
-                Projects{" "}
+                Projects
                 <svg
-                  className="w-2.5 h-2.5 ms-2.5"
+                  className="w-3 h-3 ml-2"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -75,16 +71,13 @@ export default function Navbar() {
               </button>
               <div
                 id="dropdownNavbar"
-                className="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
+                className="hidden absolute z-10 bg-gray-800 rounded-lg shadow-lg w-44 border border-gray-700"
               >
-                <ul
-                  className="py-2 text-sm text-gray-700 dark:text-gray-400"
-                  aria-labelledby="dropdownLargeButton"
-                >
+                <ul className="py-2 text-sm text-gray-300">
                   <li>
                     <a
                       href="/chat"
-                      className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      className="block px-4 py-2 hover:bg-gray-700 hover:text-teal-400 transition-colors"
                     >
                       Chatroom
                     </a>
@@ -95,18 +88,17 @@ export default function Navbar() {
             <li>
               <a
                 href="/contact"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-400 md:p-0 transition-colors"
               >
                 Contact
               </a>
             </li>
-
             <li>
               <a
                 href="/spencer_maas_resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-400 md:p-0 transition-colors"
               >
                 Resume
               </a>
