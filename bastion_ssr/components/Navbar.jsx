@@ -93,16 +93,6 @@ export default function Navbar() {
                 Contact
               </a>
             </li>
-            <li>
-              <a
-                href="/spencer_maas_resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:hover:text-teal-400 md:p-0 transition-colors"
-              >
-                Resume
-              </a>
-            </li>
           </ul>
         </div>
       </div>
