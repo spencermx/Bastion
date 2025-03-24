@@ -87,13 +87,14 @@ export default function ChatPage() {
           Welcome to the live chat! Connect with others in real-time.
         </p>
         <p className="text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed text-gray-300">
-          This is a little real-time chat app I built to mess around with
-          WebSockets. It’s got a Node.js backend keeping things ticking and a
-          simple frontend that updates as you type. Nothing too fancy—just a fun
-          way to show I can make stuff talk to each other instantly.
+          This is a little real-time chat app I built to play with WebSockets.
+          It’s got a Node.js backend keeping things running and a simple
+          frontend that updates as you type. Type something, and it’ll send the
+          message to all currently connected clients. Nothing too fancy—just a fun way to show I
+          can get stuff talking to each other in real time.
         </p>
       </header>
- 
+
       <div className="bg-gray-800 rounded-lg p-3 sm:p-5 shadow-xl">
         {/* Messages Container */}
         <div className="relative mb-3 sm:mb-5 h-48 sm:h-96 md:h-72 lg:h-80 xl:h-96 overflow-y-auto bg-gray-900 rounded-lg p-2 sm:p-3">
