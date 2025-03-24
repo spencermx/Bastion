@@ -37,7 +37,12 @@ export default function ChatPage() {
           setCurrentTime(messageObj.data);
 
           // Update the background color
-          const colors = ["bg-yellow-500", "bg-green-500", "bg-blue-500", "bg-red-500"];
+          const colors = [
+            "bg-yellow-500",
+            "bg-green-500",
+            "bg-blue-500",
+            "bg-red-500",
+          ];
           colorIndex.current = (colorIndex.current + 1) % colors.length;
           setBgColor(colors[colorIndex.current]);
         } else if (messageObj.type === "chat") {
@@ -74,14 +79,21 @@ export default function ChatPage() {
 
   return (
     <div className="max-w-full mx-auto px-4 sm:px-4 py-6 sm:py-8 text-gray-100">
-      <h1 className="text-2xl sm:text-4xl font-extrabold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
-        Live Chat
-      </h1>
-
-      <p className="text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
-        Welcome to the live chat! Connect with others in real-time.
-      </p>
-
+      <header className="text-center mb-4 sm:mb-6">
+        <h1 className="text-2xl sm:text-4xl font-extrabold mb-4 sm:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-teal-400">
+          Live Chat
+        </h1>
+        <p className="text-sm sm:text-base mb-2 leading-relaxed">
+          Welcome to the live chat! Connect with others in real-time.
+        </p>
+        <p className="text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed text-gray-300">
+          This is a little real-time chat app I built to mess around with
+          WebSockets. It’s got a Node.js backend keeping things ticking and a
+          simple frontend that updates as you type. Nothing too fancy—just a fun
+          way to show I can make stuff talk to each other instantly.
+        </p>
+      </header>
+ 
       <div className="bg-gray-800 rounded-lg p-3 sm:p-5 shadow-xl">
         {/* Messages Container */}
         <div className="relative mb-3 sm:mb-5 h-48 sm:h-96 md:h-72 lg:h-80 xl:h-96 overflow-y-auto bg-gray-900 rounded-lg p-2 sm:p-3">
@@ -90,7 +102,7 @@ export default function ChatPage() {
             <div className="sticky top-0 z-10 flex justify-center">
               <div
                 className={`inline-block px-2 py-1 rounded-lg text-gray-900 break-words transition-colors duration-500 ${bgColor}`}
-                style={{ maxWidth: '80%' }}
+                style={{ maxWidth: "80%" }}
               >
                 Server Time: {currentTime}
               </div>
